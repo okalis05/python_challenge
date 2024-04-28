@@ -9,11 +9,11 @@ with open(file,"r") as csvfile:
 
     #specifying delimiter and variables to hold contents
         csv_reader = csv.reader(csvfile, delimiter=",")
-       # print(csv_reader)
+        print(csv_reader)
 
         # reading the header rows first
         csv_header = next(csv_reader)
-       # print(f"csv header:{csv_header}")
+        print(f"csv header:{csv_header}")
 
         #declaring my variables
         total_months=''
