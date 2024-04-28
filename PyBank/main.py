@@ -9,11 +9,11 @@ with open(file,"r") as csvfile:
 
     #specifying delimiter and variables to hold contents
         csv_reader = csv.reader(csvfile, delimiter=",")
-        print(csv_reader)
+       # print(csv_reader)
 
         # reading the header rows first
         csv_header = next(csv_reader)
-        print(f"csv header:{csv_header}")
+       # print(f"csv header:{csv_header}")
 
         #declaring my variables
         total_months=''
@@ -50,20 +50,20 @@ with open(file,"r") as csvfile:
         max_decrease_month = monthly_profit_change.index(min(monthly_profit_change))+ 1
 
         #printing financial statements
+        print(f"Financial Analysis")
         print(f"--------------------------------------------")
-        print(f" Total Months :{len(months_list)}")
+        print(f"Total Months :{len(months_list)}")
         print(f"Total : $ {sum(profits_list)}")
-        print(f"Average Change : $ {sum(monthly_profit_change)/len(monthly_profit_change)}")
+        print(f"Average Change : $ {round(sum(monthly_profit_change)/len(monthly_profit_change),2)}")
         print(f"Greatest Increase in Profits: {months_list[max_increase_month]}   ${str(max_increase_profit)}")
         print(f"Greatest Decrease in Profits : {months_list[max_decrease_month]}   ${str(max_decrease_profit)}")
 
-
 #printing financial statements
 with open("PyBank/Analysis/analysis_pybank" ,"w")  as txt_file:
-
+        txt_file.write(f"Financial Analysis\n")
         txt_file.write(f"--------------------------------------------\n")
-        txt_file.write(f" Total Months :{len(months_list)}\n")
-        txt_file.write(f"Total : $ {sum(profits_list)}\n")
-        txt_file.write(f"Average Change : $ {sum(monthly_profit_change)/len(monthly_profit_change)}\n")
+        txt_file.write(f"Total Months : {len(months_list)}\n")
+        txt_file.write(f"Total : ${sum(profits_list)}\n")
+        txt_file.write(f"Average Change : ${round(sum(monthly_profit_change)/len(monthly_profit_change),2)}\n")
         txt_file.write(f"Greatest Increase in Profits: {months_list[max_increase_month]}   ${str(max_increase_profit)}\n")
         txt_file.write(f"Greatest Decrease in Profits : {months_list[max_decrease_month]}   ${str(max_decrease_profit)}\n")

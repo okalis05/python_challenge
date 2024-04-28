@@ -10,11 +10,11 @@ with open(file,"r") as csvfile:
 
          #specifying delimiter and variables to hold contents
         csv_reader = csv.reader(csvfile, delimiter=",")
-        print(csv_reader)
+        #print(csv_reader)
 
          #reading the header rows first
         csv_header = next(csv_reader)
-        print(f"csv header:{csv_header}")
+        #print(f"csv header:{csv_header}")
 
         #defining variables to store  in values
         winner = ""
@@ -64,7 +64,7 @@ with open(file,"r") as csvfile:
 
 
 
-print(f"ELECTION RESULTS")            
+print(f"Election Results")            
 print("---------------------------------------------")
 print(f"Total Votes : {votes_count}")
 print(f"--------------------------------------------")
@@ -73,11 +73,11 @@ print(f"--------------------------------------------")
 for (name,percentage,count) in zip(unique_candidate_list, percentage_list ,count_list):
   print(f"{name}: {percentage}%  ({count})")
 print(f"--------------------------------------------")
-print(f"winner : {winner}")
+print(f"Winner : {winner}")
 print(f"----------------------------------------------")
 
 with open("PyPoll/analysis/analysis.txt","w")  as txt_file:
-    txt_file.write(f"ELECTION RESULTS\n")
+    txt_file.write(f"Election Results\n")
     txt_file.write("---------------------------------------------\n")
     txt_file.write(f"Total Votes : {votes_count}\n")
     txt_file.write(f"--------------------------------------------\n")
@@ -86,7 +86,7 @@ with open("PyPoll/analysis/analysis.txt","w")  as txt_file:
     for (name,percentage,count) in zip(unique_candidate_list,percentage_list,count_list):
      txt_file.write(f"{name}:{percentage}% {count}\n")
     txt_file.write(f"--------------------------------------------\n")
-    txt_file.write(f"winner : {winner}\n")
+    txt_file.write(f"Winner : {winner}\n")
     txt_file.write(f"----------------------------------------------\n")      
                             
                 
